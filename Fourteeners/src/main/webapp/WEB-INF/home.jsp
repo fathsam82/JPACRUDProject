@@ -11,8 +11,16 @@
 
 <h1>Fourteeners</h1>
 
-<c:forEach var="fourteener" items="${fourteenerList}">
+<form action="getFourteener.do" method="GET">
+  Fourteener ID: <input type="text" name="id" />
+  <input type="submit" value="Show Fourteener" />
+</form>
+
+
+<a href="getCreateFourteener.do">Create Fourteener</a><br/>
+
+<%-- <c:forEach var="fourteener" items="${fourteenerList}">
 <li>${fourteener.name}</li>
-</c:forEach>
+</c:forEach> --%>
 </body>
 </html>
