@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<body style ="background-color: silver;">
 <meta charset="UTF-8">
 <title>Fourteeners</title>
 </head>
@@ -15,6 +16,8 @@
   Fourteener ID: <input type="text" name="id" />
   <input type="submit" value="Show Fourteener" />
 </form>
+
+
 
 
 <a href="getCreateFourteener.do">Create Fourteener</a><br/>

@@ -15,16 +15,13 @@ import com.skilldistillery.fourteeners.entities.Fourteener;
 @Service
 @Transactional
 public class FourteenerDaoImpl implements FourteenerDAO {
-	// dont need to em.close()
-	// never begin()//commit()
 
 	@PersistenceContext
 	private EntityManager em;
-	
 
 	@Override
 	public Fourteener findById(int id) {
-		// TODO Auto-generated method stub
+
 		return em.find(Fourteener.class, id);
 	}
 
@@ -32,34 +29,25 @@ public class FourteenerDaoImpl implements FourteenerDAO {
 	public List<Fourteener> findAll() {
 		String jpql = "SELECT fourteener FROM Fourteener fourteener";
 		return em.createQuery(jpql, Fourteener.class).getResultList();
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public Fourteener create(Fourteener fourteener) {
-	    em.persist(fourteener);
-	    return fourteener;
+		em.persist(fourteener);
+		return fourteener;
 	}
-
-	
 
 	@Override
 	public Fourteener update(int fourteenerId, Fourteener fourteener) {
 		Fourteener updatedFourteener = em.find(Fourteener.class, fourteenerId);
 
-		if (updatedFourteener != null) {
-			
-			updatedFourteener.setName(fourteener.getName());
-			updatedFourteener.setNearestTown(fourteener.getNearestTown());
-			updatedFourteener.setDescription(fourteener.getDescription());
-			updatedFourteener.setMaxElevation(fourteener.getMaxElevation());
-			updatedFourteener.setElevationGained(fourteener.getElevationGained());
-			updatedFourteener.setHiked(fourteener.getHiked());
-			em.persist(updatedFourteener);
-			em.flush();
-			
-		}
+		updatedFourteener.setName(fourteener.getName());
+		updatedFourteener.setNearestTown(fourteener.getNearestTown());
+		updatedFourteener.setDescription(fourteener.getDescription());
+		updatedFourteener.setMaxElevation(fourteener.getMaxElevation());
+		updatedFourteener.setElevationGained(fourteener.getElevationGained());
+		updatedFourteener.setHiked(fourteener.getHiked());
+
 		return updatedFourteener;
 	}
 
@@ -67,13 +55,12 @@ public class FourteenerDaoImpl implements FourteenerDAO {
 	public boolean deleteById(int fourteenerId) {
 		boolean deleted = false;
 		Fourteener managedFourteener = em.find(Fourteener.class, fourteenerId);
-		if(managedFourteener != null) {
-			
+		if (managedFourteener != null) {
+
 			em.remove(managedFourteener);
-			
+
 			deleted = true;
 		}
 		return deleted;
 	}
-
 }

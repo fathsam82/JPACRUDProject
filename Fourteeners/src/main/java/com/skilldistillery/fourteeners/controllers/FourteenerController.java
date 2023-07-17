@@ -30,18 +30,11 @@ public class FourteenerController {
 		return "fourteener/show";
 	}
 
-	@RequestMapping(path = "updateFourteener.do", method = RequestMethod.POST)
-	public String updateFourteener(Model model, @RequestParam int id, Fourteener updatedFourteener) {
-		Fourteener existingFourteener = fourteenerDao.findById(id);
-
-		return "fourteener/edit";
-	}
-
 	@RequestMapping(path = "createFourteener.do", method = RequestMethod.POST)
 	public String createFourteener(Model model, @ModelAttribute("fourteener") Fourteener fourteener) {
 		Fourteener createdFourteener = fourteenerDao.create(fourteener);
 		model.addAttribute("fourteener", createdFourteener);
-		return "fourteener/createFourteener";
+		return "home";
 	}
 
 	@RequestMapping(path = "getCreateFourteener.do")
@@ -49,22 +42,29 @@ public class FourteenerController {
 
 		return "fourteener/createFourteener";
 	}
-	
+
 	@RequestMapping(path = "deleteFourteener.do")
-	public String deleteFourteener(@RequestParam("fourteenerId") int fourteenerId) {
-		
-		boolean deleteFourteener = fourteenerDao.deleteById(fourteenerId);
-		
-		
+	public String deleteFourteener(@RequestParam("fourteenerId") int id) {
+
+		boolean deleteFourteener = fourteenerDao.deleteById(id);
+
 		if (deleteFourteener) {
-			return"fourteener/show";
-		
-		
-		}
-		else{
+			return "home";
+
+		} else {
 			return "error";
 		}
 
 	}
+
+	@RequestMapping(path = "updateFourteener.do")
+	public String updateFourteener(Model model, @RequestParam int id, Fourteener updatedFourteener) {
+		Fourteener newlyCreated = fourteenerDao.update(id, updatedFourteener);
+		model.addAttribute("newlyCreated", newlyCreated);
+
+		return "home";
+	}
+
+
 
 }
