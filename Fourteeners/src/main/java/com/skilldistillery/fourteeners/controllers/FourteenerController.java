@@ -26,7 +26,6 @@ public class FourteenerController {
 	public String displayFourteener(Model model, @RequestParam int id) {
 	    Fourteener fourteener = fourteenerDao.findById(id);
 	    if (fourteener == null) {
-//	        model.addAttribute("message", "Fourteener out of reach!");
 	        return "fourteener/error"; 
 	    }
 	    model.addAttribute("fourteener", fourteener);
