@@ -8,5 +8,5 @@ The Dao methods within the implementation class retrieves data from othe databas
 -Java, Spring Boot, MAMP
 -Sql Workbench
 
-#Lessons Learned
+# Lessons Learned
 I learned how the controller, implementation class, entities and jsp files all work together. I learned a little bit about performing logic within a jsp. I learned the hard way that parameters passed into a controller method have to match and actions' "name" within a jsp. I strengthened my understanding of how controllers work. I learned how to create a database. 
