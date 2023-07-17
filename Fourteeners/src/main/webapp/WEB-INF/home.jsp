@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<body style ="background-color: silver;">
+<body style ="background-color: tan;">
 <meta charset="UTF-8">
 <title>Fourteeners</title>
 </head>
@@ -17,13 +17,15 @@
   <input type="submit" value="Show Fourteener" />
 </form>
 
+	<style>
+a {
+	color: green;
+}
 
-
+</style>
 
 <a href="getCreateFourteener.do">Create Fourteener</a><br/>
 
-<%-- <c:forEach var="fourteener" items="${fourteenerList}">
-<li>${fourteener.name}</li>
-</c:forEach> --%>
+
 </body>
 </html>

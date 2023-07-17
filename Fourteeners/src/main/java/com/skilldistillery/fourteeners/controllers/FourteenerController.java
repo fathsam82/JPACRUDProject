@@ -22,12 +22,15 @@ public class FourteenerController {
 		model.addAttribute("fourteenerList", fourteenerDao.findAll());
 		return "home";
 	}
-
 	@RequestMapping(path = "getFourteener.do", method = RequestMethod.GET)
 	public String displayFourteener(Model model, @RequestParam int id) {
-		Fourteener fourteener = fourteenerDao.findById(id);
-		model.addAttribute("fourteener", fourteener);
-		return "fourteener/show";
+	    Fourteener fourteener = fourteenerDao.findById(id);
+	    if (fourteener == null) {
+//	        model.addAttribute("message", "Fourteener out of reach!");
+	        return "fourteener/error"; 
+	    }
+	    model.addAttribute("fourteener", fourteener);
+	    return "fourteener/show";
 	}
 
 	@RequestMapping(path = "createFourteener.do", method = RequestMethod.POST)
@@ -57,7 +60,7 @@ public class FourteenerController {
 
 	}
 
-	@RequestMapping(path = "updateFourteener.do")
+	@RequestMapping(path = "updateFourteener.do", method = RequestMethod.POST)
 	public String updateFourteener(Model model, @RequestParam int id, Fourteener updatedFourteener) {
 		Fourteener newlyCreated = fourteenerDao.update(id, updatedFourteener);
 		model.addAttribute("newlyCreated", newlyCreated);
