@@ -12,8 +12,10 @@
 	<h1>Fourteener Details</h1>
 	<div>
 		<h5>${fourteener.name}(${fourteener.nearestTown})</h5>
-		<h5>Have I hiked this mountain?</h5>
-		<h4>${fourteener.hiked}</h4>
+		<h4>Have I hiked this mountain?</h4>
+		<h5>${fourteener.hiked}</h5>
+		<h5>${fourteener.elevationGained}</h5>
+		<h5>${fourteener.maxElevation}</h5>
 		<p>${fourteener.description}</p>
 	</div>
 	<form action="deleteFourteener.do" method="POST" id="formDel">
@@ -25,7 +27,7 @@
 	<br>
 	<form action="updateFourteener.do" method="POST" id="formSave">
 	<input type="hidden" name="id" value="${fourteener.id}" />
-		Title: <input type="text" name="name"value="${fourteener.name }"><br> 
+		Name: <input type="text" name="name"value="${fourteener.name }"><br> 
 		Description: <input type="text" name="description"value="${fourteener.description }" /><br>
 		Nearest Town: <input type="text" name="nearestTown"value="${fourteener.nearestTown }" /><br>
 		<button type="submit">Submit Changes</button>

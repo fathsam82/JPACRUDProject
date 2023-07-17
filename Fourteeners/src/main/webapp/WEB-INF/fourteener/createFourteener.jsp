@@ -18,8 +18,8 @@
 		Title: <input type="text" name="name" value="${fourteener.name}"><br>
 		Nearest town: <input type="text" name="nearestTown"value="${fourteener.nearestTown}"><br> 
 		Description: <input type="text" name="description" value="${fourteener.description}"><br>
-		Peak Elevation: <input type="text" name="maxElevation" value="${fourteener.maxElevation}"><br>
-		Elevation Gained: <input type="text" name="elevationGained" value="${fourteener.elevationGained}"><br>
+		Peak Elevation: <input type="number" name="maxElevation" value="${fourteener.maxElevation}"><br>
+		Elevation Gained: <input type="number" name="elevationGained" value="${fourteener.elevationGained}"><br>
 
 
 
